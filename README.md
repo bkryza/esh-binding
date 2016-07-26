@@ -99,7 +99,7 @@ and copy the resulting jar into the `addons` folder in openHAB 2.
 
 After starting openHAB 2 it should be visible in the UI, in particular if the automatic service discovery works, pressing `Find new things` should present the device. For instance after compiling and copying the binding generated from the above mentioned command, the following screen is visible:
 
-![Discovery example screenshot](https://raw.github.com/bkryza/esh-binding/img/example-discovery.png)
+![Discovery example screenshot](https://raw.github.com/bkryza/esh-binding/master/img/example-discovery.png)
 
 
 ## License
