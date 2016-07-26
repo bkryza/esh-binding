@@ -13,19 +13,36 @@
 
 
 (gen-class
-      :name "org.{{name}}.binding.{{name}}.handler.{{name-cc}}Handler"
+      :name "{{binding-ns}}.{{name}}.handler.{{name-cc}}Handler"
       :init init
       :prefix "-"
       :extends org.eclipse.smarthome.core.thing.binding.BaseThingHandler
-      :constructors {[org.eclipse.smarthome.core.thing.Thing] []})
+      :constructors {;; constructor parameters
+                     [org.eclipse.smarthome.core.thing.Thing] 
+                     ;; superconstructor parameters
+                     [org.eclipse.smarthome.core.thing.Thing]})
 
 
 
 (defn -init 
-  ([^org.eclipse.smarthome.core.thing.Thing thing] [[] thing]))
+  [^org.eclipse.smarthome.core.thing.Thing thing] 
+    [[thing]] )
 
 
 (defn -initialize
+  "Initialize the thing. If done set status to ONLINE to indicate proper 
+  working. Long running initialization should be done asynchronously in 
+  background.
+  
+  When initialization can NOT be done set the status with more details for 
+  further analysis. See also class ThingStatusDetail for all available status 
+  details. Add a description to give user information to understand why thing 
+  does not work as expected, for instance:
+
+  (.updateStatus this ThingStatus.OFFLINE 
+      ThingStatusDetail.CONFIGURATION_ERROR
+      \"Can not access device as username and/or password are invalid\")
+  "
   [this]
   (do 
     (log/info "{{name-cc}} binding initialized")
@@ -36,8 +53,16 @@
 
 
 (defn -handleCommand
-  [^ChannelUID channelUID ^Command command]
-  (log/info "Handling TouchLyte command received on channel" (.getId channelUID))
+  "Handle command.
+
+  If communication with thing fails for some reason, indicate that by setting 
+  the status with detailed information:
+  
+  (.updateStatus this ThingStatus.OFFLINE
+      ThingStatusDetail.COMMUNICATION_ERROR
+      \"Could not control device at IP address x.x.x.x\")"
+  [this ^ChannelUID channel-uid ^Command command]
+  (log/info "Handling {{name-cc}} command received on channel" (.getId channel-uid))
   ;;
   ;; TODO: handle command received for channel
   ;;

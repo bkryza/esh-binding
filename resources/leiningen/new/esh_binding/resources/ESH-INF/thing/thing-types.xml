@@ -7,7 +7,7 @@
     <!-- Sample Thing Type -->
     <thing-type id="sample">
         <label>{{name-cc}} Binding Thing</label>
-        <description>Sample thing for {{name-cc}}} Binding</description>
+        <description>Sample thing for {{name-cc}} Binding</description>
 
         <channels>
             <channel id="channel1" typeId="sample-channel"/>

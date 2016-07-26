@@ -1,8 +1,8 @@
 (ns {{name}}-binding.constants
   (:import (org.eclipse.smarthome.core.thing ThingTypeUID)))
 
-(def ^String BINDING_ID "{{name}}")
+(def ^String binding-id "{{name}}")
 
-(def ^ThingTypeUID THING_TYPE_SAMPLE (ThingTypeUID. BINDING_ID "sample"))
+(def ^ThingTypeUID thing-type-{{name}} (ThingTypeUID. binding-id "{{name}}"))
 
-(def ^String CHANNEL_1 "channel1")
+(def ^String channel-1 "channel1")

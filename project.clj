@@ -1,4 +1,4 @@
-(defproject esh-binding/lein-template "0.1.0-SNAPSHOT"
+(defproject esh-binding/lein-template "0.2.0"
   :description "A Leiningen template for writing Eclipse Smart Home framework (and OpenHAB2) bindings in Clojure"
   :url "https://github.com/bkryza/esh-binding"
   :license {:name "Eclipse Public License"
